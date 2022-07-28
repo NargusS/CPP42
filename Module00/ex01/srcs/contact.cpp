@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 18:28:18 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/07 19:05:31 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:11:46 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static bool    is_phonenumber(std::string name){
 	return (true);
 }
 
-static std::string fill_field(string sentence_field, int type_field){
+static std::string fill_field(std::string sentence_field, int type_field){
 	std::string info;
 
 	std::cout << sentence_field;

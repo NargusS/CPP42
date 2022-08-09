@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 19:30:47 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/30 00:29:17 by achane-l         ###   ########.fr       */
+/*   Created: 2022/08/06 20:13:22 by achane-l          #+#    #+#             */
+/*   Updated: 2022/08/06 20:31:52 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
+#include <iostream>
+#include "./Brain.hpp"
 
-int	main(void){
-	ScavTrap Personne;
-	ScavTrap MrOne("MrOne");
+class AAnimal
+{
+	protected:
+		std::string	_type;
+	public:
+		AAnimal();
+		AAnimal(const AAnimal &src);
+		virtual ~AAnimal() = 0;
 
-	Personne.attack("MrWhite");
-	Personne.beRepaired(100);
-	Personne.takeDamage(110);
-	Personne.beRepaired(100);
-	Personne.guardGate();
-	MrOne.takeDamage(9);
-	MrOne.takeDamage(2);
-	MrOne.guardGate();
-	MrOne.takeDamage(10);
-	MrOne.attack("L'autre");
-}
+		virtual AAnimal&	operator=(const AAnimal &src) = 0;
+
+		const std::string	getType()const;
+		virtual void	makeSound()const = 0;
+		virtual Brain*	getBrain() const = 0;
+};
+
+
+
+#endif

@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 19:30:47 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/30 00:29:17 by achane-l         ###   ########.fr       */
+/*   Created: 2022/08/05 16:15:06 by achane-l          #+#    #+#             */
+/*   Updated: 2022/08/05 21:09:12 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
+#include <iostream>
+#include "./Animal.hpp"
 
-int	main(void){
-	ScavTrap Personne;
-	ScavTrap MrOne("MrOne");
+class Dog : public Animal
+{
+	public:
+		Dog();
+		Dog(const Dog &src);
+		~Dog();
+		Dog&	operator=(const Dog &src);
+		virtual void	makeSound()const;
+};
 
-	Personne.attack("MrWhite");
-	Personne.beRepaired(100);
-	Personne.takeDamage(110);
-	Personne.beRepaired(100);
-	Personne.guardGate();
-	MrOne.takeDamage(9);
-	MrOne.takeDamage(2);
-	MrOne.guardGate();
-	MrOne.takeDamage(10);
-	MrOne.attack("L'autre");
-}
+
+
+#endif

@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 19:30:47 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/30 00:29:17 by achane-l         ###   ########.fr       */
+/*   Created: 2022/08/05 16:15:06 by achane-l          #+#    #+#             */
+/*   Updated: 2022/08/06 20:42:31 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
+#include <iostream>
+#include "./Brain.hpp"
 
-int	main(void){
-	ScavTrap Personne;
-	ScavTrap MrOne("MrOne");
+class Animal
+{
+	protected:
+		std::string	_type;
+	public:
+		Animal();
+		Animal(const Animal &src);
+		virtual ~Animal();
+		Animal&	operator=(const Animal &src);
+		const std::string	getType()const;
+		virtual void	makeSound()const;
+		virtual Brain*	getBrain() const = 0;
+};
 
-	Personne.attack("MrWhite");
-	Personne.beRepaired(100);
-	Personne.takeDamage(110);
-	Personne.beRepaired(100);
-	Personne.guardGate();
-	MrOne.takeDamage(9);
-	MrOne.takeDamage(2);
-	MrOne.guardGate();
-	MrOne.takeDamage(10);
-	MrOne.attack("L'autre");
-}
+
+
+#endif

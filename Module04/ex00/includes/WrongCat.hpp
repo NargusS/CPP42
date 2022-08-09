@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 19:30:47 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/30 00:29:17 by achane-l         ###   ########.fr       */
+/*   Created: 2022/08/05 16:15:06 by achane-l          #+#    #+#             */
+/*   Updated: 2022/08/05 21:15:24 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
+#include <iostream>
+#include "./WrongAnimal.hpp"
 
-int	main(void){
-	ScavTrap Personne;
-	ScavTrap MrOne("MrOne");
+class WrongCat : public WrongAnimal
+{
+	public:
+		WrongCat();
+		WrongCat(const WrongCat &src);
+		~WrongCat();
+		WrongCat&	operator=(const WrongCat &src);
+		void	makeSound()const;
+};
 
-	Personne.attack("MrWhite");
-	Personne.beRepaired(100);
-	Personne.takeDamage(110);
-	Personne.beRepaired(100);
-	Personne.guardGate();
-	MrOne.takeDamage(9);
-	MrOne.takeDamage(2);
-	MrOne.guardGate();
-	MrOne.takeDamage(10);
-	MrOne.attack("L'autre");
-}
+#endif

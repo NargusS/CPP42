@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 19:30:47 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/30 00:29:17 by achane-l         ###   ########.fr       */
+/*   Created: 2022/08/05 21:41:23 by achane-l          #+#    #+#             */
+/*   Updated: 2022/08/05 21:56:38 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+#include <iostream>
 
-int	main(void){
-	ScavTrap Personne;
-	ScavTrap MrOne("MrOne");
+class Brain
+{
+	protected:
+		std::string	ideas[100];
+	public:
+		Brain();
+		~Brain();
+		Brain(const Brain &src);
+		Brain&	operator=(const Brain &src);
+};
 
-	Personne.attack("MrWhite");
-	Personne.beRepaired(100);
-	Personne.takeDamage(110);
-	Personne.beRepaired(100);
-	Personne.guardGate();
-	MrOne.takeDamage(9);
-	MrOne.takeDamage(2);
-	MrOne.guardGate();
-	MrOne.takeDamage(10);
-	MrOne.attack("L'autre");
-}
+
+
+#endif

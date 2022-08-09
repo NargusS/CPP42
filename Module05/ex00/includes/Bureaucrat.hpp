@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 19:30:47 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/30 00:29:17 by achane-l         ###   ########.fr       */
+/*   Created: 2022/08/06 20:48:16 by achane-l          #+#    #+#             */
+/*   Updated: 2022/08/06 21:01:16 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
+#include <iostream>
 
-int	main(void){
-	ScavTrap Personne;
-	ScavTrap MrOne("MrOne");
+class Bureaucrat
+{
 
-	Personne.attack("MrWhite");
-	Personne.beRepaired(100);
-	Personne.takeDamage(110);
-	Personne.beRepaired(100);
-	Personne.guardGate();
-	MrOne.takeDamage(9);
-	MrOne.takeDamage(2);
-	MrOne.guardGate();
-	MrOne.takeDamage(10);
-	MrOne.attack("L'autre");
-}
+	private:
+		std::string const	_name;
+		int					_grade;
+	public:
+		Bureaucrat();
+		Bureaucrat(const Bureaucrat &src);
+		Bureaucrat&	operator=(const Bureaucrat &src);
+		~Bureaucrat();
+		std::string	getName()const;
+		int			getGrade()const;
+		void		getRetrograded();
+		void		getPromoted();
+};
+
+#endif

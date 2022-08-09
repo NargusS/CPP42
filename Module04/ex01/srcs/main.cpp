@@ -5,25 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 19:30:47 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/30 00:29:17 by achane-l         ###   ########.fr       */
+/*   Created: 2022/08/05 16:39:14 by achane-l          #+#    #+#             */
+/*   Updated: 2022/08/06 20:07:43 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
+#include "../includes/Animal.hpp"
+#include "../includes/Dog.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/WrongAnimal.hpp"
+#include "../includes/WrongCat.hpp"
 
-int	main(void){
-	ScavTrap Personne;
-	ScavTrap MrOne("MrOne");
+int main()
+{
+	Animal *animals[100];
 
-	Personne.attack("MrWhite");
-	Personne.beRepaired(100);
-	Personne.takeDamage(110);
-	Personne.beRepaired(100);
-	Personne.guardGate();
-	MrOne.takeDamage(9);
-	MrOne.takeDamage(2);
-	MrOne.guardGate();
-	MrOne.takeDamage(10);
-	MrOne.attack("L'autre");
+	for (int i = 0; i < 100; i++){
+		if (i < 50)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+
+	for (int j = 0; j < 100 ; j++){
+		delete animals[j];
+	}
+
+	return 0;
 }

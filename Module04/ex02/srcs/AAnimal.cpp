@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 19:30:47 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/30 00:29:17 by achane-l         ###   ########.fr       */
+/*   Created: 2022/08/06 20:13:16 by achane-l          #+#    #+#             */
+/*   Updated: 2022/08/06 20:32:07 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
 
-int	main(void){
-	ScavTrap Personne;
-	ScavTrap MrOne("MrOne");
 
-	Personne.attack("MrWhite");
-	Personne.beRepaired(100);
-	Personne.takeDamage(110);
-	Personne.beRepaired(100);
-	Personne.guardGate();
-	MrOne.takeDamage(9);
-	MrOne.takeDamage(2);
-	MrOne.guardGate();
-	MrOne.takeDamage(10);
-	MrOne.attack("L'autre");
+#include "../includes/AAnimal.hpp"
+
+AAnimal::AAnimal()
+{
+	this->_type = "Inconnu";
+	std::cout << "Constructor of AAnimal" << std::endl;
+}
+
+AAnimal::AAnimal(const AAnimal &src)
+{
+	*this = src;
+	std::cout << "Constructor Copy of AAnimal" << std::endl;
+}
+
+const std::string	AAnimal::getType()const{
+	return (this->_type);
+}
+
+AAnimal::~AAnimal(){
+	std::cout << "Destructor of AAnimal" << std::endl;
 }

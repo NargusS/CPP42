@@ -6,11 +6,12 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 18:28:18 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/07 19:05:31 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/07/29 12:32:09 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/contact.hpp"
+#include <iomanip>
 
 Contact::Contact(void){
 	return ;
@@ -38,7 +39,7 @@ static bool    is_phonenumber(std::string name){
 	return (true);
 }
 
-static std::string fill_field(string sentence_field, int type_field){
+static std::string fill_field(std::string sentence_field, int type_field){
 	std::string info;
 
 	std::cout << sentence_field;
@@ -62,14 +63,8 @@ static std::string fill_field(string sentence_field, int type_field){
 	return (info);
 }
 
-std::string ajust_left(std::string value){
-	std::string ajust;
-	if (value.length() < 10){
-		for (unsigned int  i = 0; i < 10 - value.length(); ++i)
-			ajust += " ";
-		value = ajust + value;
-	}
-	else if (value.length() > 10)
+std::string cut_string(std::string value){
+	if (value.length() > 10)
 		return (value.substr(0, 9) + ".");
 	return (value);
 }
@@ -86,7 +81,7 @@ void    Contact::print_contacts(int index){
 	if (this->_firstname.empty())
 		return;
 	index_value = index + '0'; 
-	std::cout<< "|" << ajust_left(index_value) << "|" << ajust_left(this->_firstname) << "|" << ajust_left(this->_lastname)  << "|" << ajust_left(this->_nickname) << "|" << std::endl;
+	std::cout<< "|" << std::setw(10) << cut_string(index_value) << "|" << std::setw(10) << cut_string(this->_firstname) << "|" << std::setw(10) << cut_string(this->_lastname)  << "|" << std::setw(10) << cut_string(this->_nickname) << "|" << std::endl;
 }
 
 bool	Contact::add_new_contact(void){

@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 15:55:46 by achane-l          #+#    #+#             */
-/*   Updated: 2022/07/07 19:03:12 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:17:27 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ PhoneBook::~PhoneBook(void){
 };
 
 bool	PhoneBook::add_contact_to_phonebook(void){
-	if (this->_clients[this->_index % 8].add_new_contact()){
+	if (this->_index != 2147483647 && this->_clients[this->_index % 8].add_new_contact()){
 		this->_index++;
 		return (true);
 	}
@@ -35,6 +35,10 @@ void	PhoneBook::search_contact(void){
 
 	for (int contact = 0; contact < 8; ++contact){
 		this->_clients[contact].print_contacts(contact);
+	}
+	if (this->_index == 0){
+		std::cout << "No contact in Phonebook" << std::endl;
+		return;
 	}
 	while (1){
 		std::cout << "For view more info about contact enter the index of contact: " << std::endl;

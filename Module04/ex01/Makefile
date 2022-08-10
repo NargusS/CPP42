@@ -6,7 +6,7 @@
 #    By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 15:11:35 by achane-l          #+#    #+#              #
-#    Updated: 2022/08/05 22:32:09 by achane-l         ###   ########.fr        #
+#    Updated: 2022/08/10 14:40:37 by achane-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,11 @@ SRCS = srcs/main.cpp\
 		srcs/Animal.cpp\
 		srcs/Dog.cpp\
 		srcs/Cat.cpp\
-		srcs/WrongCat.cpp\
-		srcs/WrongAnimal.cpp\
 		srcs/Brain.cpp
 
 INCLUDES = includes/Animal.hpp\
 			includes/Dog.hpp\
 			includes/Cat.hpp\
-			includes/WrongCat.hpp\
-			includes/WrongAnimal.hpp\
 			includes/Brain.hpp
 
 COMPILER = c++

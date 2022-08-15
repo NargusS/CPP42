@@ -5,29 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/05 16:39:14 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/15 18:57:41 by achane-l         ###   ########.fr       */
+/*   Created: 2022/08/10 15:17:59 by achane-l          #+#    #+#             */
+/*   Updated: 2022/08/15 16:16:42 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/AAnimal.hpp"
-#include "../includes/Dog.hpp"
-#include "../includes/Cat.hpp"
+#include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/Intern.hpp"
 
-int main()
-{
-	AAnimal *animals[100];
-
-	for (int i = 0; i < 100; i++){
-		if (i < 50)
-			animals[i] = new Dog();
-		else
-			animals[i] = new Cat();
+int	main(){
+	try{
+		Intern	Stagiare;
+		Stagiare.makeForm("PresidentialPardonForm", "Manu");
+		Stagiare.makeForm("RobotomyRequestForm", "Ethan");
+		Stagiare.makeForm("ShrubberyCreationForm", "Eric");
+		Stagiare.makeForm("rien", "Manu");
 	}
-
-	for (int j = 0; j < 100 ; j++){
-		delete animals[j];
+	catch(const std::exception &e){
+		std::cout << e.what() << std::endl;
 	}
-
-	return 0;
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 20:49:20 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/10 17:05:28 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/15 15:38:49 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,29 @@ void	Bureaucrat::getPromoted(){
 	catch(const std::exception& e)
 	{
 		std::cerr << this->getName() << " cannot be more promoted"<< '\n';
+	}
+}
+
+void	Bureaucrat::signForm(Form &f){
+	try
+	{
+		f.beSigned(*this);
+		std::cout << this->getName() << " signed " << f.getName() << std::endl; 
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->getName() << " couldn't signed " << f.getName() << " because " << e.what() << std::endl; 
+	}
+	
+}
+
+void	Bureaucrat::executeForm(const Form& form){
+	try{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception &e){
+		std::cout << e.what() << std::endl;
 	}
 }
 

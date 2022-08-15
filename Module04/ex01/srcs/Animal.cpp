@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:16:05 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/06 20:09:34 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/15 18:48:46 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Animal::Animal(const Animal &src)
 Animal&	Animal::operator=(const Animal &src){
 	if (this == &src)
 		return (*this);
-	*this = src;
+	this->_type = src.getType();
 	return (*this);
 }
 

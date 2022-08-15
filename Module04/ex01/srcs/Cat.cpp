@@ -6,35 +6,38 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:16:05 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/06 20:10:23 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/15 18:53:01 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
 	this->_type = "Cat";
 	this->_brain = new Brain();
 	std::cout << "Constructor of Cat" << std::endl;
 }
 
-Cat::Cat(const Cat &src)
+Cat::Cat(const Cat &src) : Animal()
 {
-	*this = src;
+this->_type = "Cat";
+	this->_brain = new Brain();
+	*(this->_brain) = *(src.getBrain());
 	std::cout << "Constructor Copy of Cat" << std::endl;
 }
 
 Cat&	Cat::operator=(const Cat &src){
 	if (this == &src)
 		return (*this);
-	*this = src;
+	this->_type = src.getType();
+	*(this->_brain) = *(src.getBrain());
 	return (*this);
 }
 
 Animal&	Cat::operator=(const Animal &src){
 	this->_type = src.getType();
-	this->_brain = src.getBrain();
+	*(this->_brain) = *(src.getBrain());
 	return (*this);
 }
 

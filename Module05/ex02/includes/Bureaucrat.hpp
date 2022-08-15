@@ -6,14 +6,16 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 20:48:16 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/10 16:37:54 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/15 15:11:40 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 #include <iostream>
+#include "Form.hpp"
 
+class Form;
 class Bureaucrat
 {
 
@@ -30,6 +32,8 @@ class Bureaucrat
 		int			getGrade()const;
 		void		getRetrograded();
 		void		getPromoted();
+		void		signForm(Form &f);
+		void		executeForm(Form const & form);
 		class GradeTooHighException : public std::exception{
 			public:
 				const char*	what() const throw();

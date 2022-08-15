@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 21:47:23 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/05 21:54:39 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/15 18:33:34 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 Brain::Brain(){
 	std::cout << "Constructor Brain" << std::endl;
+	for (int i = 0; i < 100; i++){
+		this->ideas[i] = "No idea";
+	}
 }
 
 Brain::~Brain(){

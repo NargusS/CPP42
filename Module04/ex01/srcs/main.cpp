@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:39:14 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/10 14:39:54 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/15 18:54:27 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main()
 {
-	Animal *animals[100];
+	Animal *animals[20];
 
 	for (int i = 0; i < 20; i++){
 		if (i < 10)
@@ -31,8 +31,15 @@ int main()
 		brain_test->ideas[k] = "hungry";
 	}
 
+	*(animals[1]) = *(animals[0]);
+	std::cout << animals[0]->getBrain()->ideas[0] << std::endl;
+	std::cout << animals[1]->getBrain()->ideas[0] << std::endl;
+
 	brain_test->ideas[0] = "play";
 	brain_test->ideas[1] = "sleep";
+	std::cout << animals[0]->getBrain()->ideas[0] << std::endl;
+	std::cout << animals[1]->getBrain()->ideas[0] << std::endl;
+
 	std::cout << "----------Print ideas-----------" << std::endl;
 	std::cout << brain_test->ideas[0] << std::endl;
 	std::cout << brain_test->ideas[1] << std::endl;
@@ -49,5 +56,16 @@ int main()
 		delete animals[j];
 	}
 
+	std::cout << "-----------------deep copy Dog and Cat------------------" << std::endl;
+	Cat first;
+	Cat second;
+	Cat third(first);
+
+	first.getBrain()->ideas[0] = "Hunnnnnnnnnnnnnnnnnnnnnnnnnnnngry";
+	second = first;
+	first.getBrain()->ideas[0] = "Sleepinnnnnnnnnnnnnnnnnnnng";
+	std::cout << "first[0] : " << first.getBrain()->ideas[0] << std::endl;
+	std::cout << "second[0] : " << second.getBrain()->ideas[0] << std::endl;
+	std::cout << "third[0] : " << third.getBrain()->ideas[0] << std::endl;
 	return 0;
 }

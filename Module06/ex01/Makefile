@@ -6,11 +6,11 @@
 #    By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 15:11:35 by achane-l          #+#    #+#              #
-#    Updated: 2022/08/13 19:49:39 by achane-l         ###   ########.fr        #
+#    Updated: 2022/08/17 19:54:46 by achane-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex00
+NAME = ex01
 
 SRCS = srcs/main.cpp
 

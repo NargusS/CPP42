@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 19:57:37 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/13 20:57:58 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/17 20:00:45 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,22 @@ Base::~Base(){
 Base*	generate(void){
 	srand(time(NULL));
 	int	choice = rand() % 3;
-	Base	*ptr;
+	Base	*ptr = NULL;
 
-	if (choice == 0)
+	switch (choice)
+	{
+	case 0:
 		ptr = new A();
-	else if (choice == 1)
+		break;
+	case 1:
 		ptr = new B();
-	else
+		break;
+	case 2:
 		ptr = new C();
+		break;	
+	default:
+		break;
+	}
 	return (ptr);
 }
 

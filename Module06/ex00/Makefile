@@ -6,15 +6,14 @@
 #    By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 15:11:35 by achane-l          #+#    #+#              #
-#    Updated: 2022/08/13 17:47:59 by achane-l         ###   ########.fr        #
+#    Updated: 2022/08/17 17:25:29 by achane-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ex00
 
 SRCS = srcs/main.cpp\
-		srcs/Scalar.cpp\
-		srcs/check.cpp
+		srcs/Scalar.cpp
 
 INCLUDES = includes/Scalar.hpp
 

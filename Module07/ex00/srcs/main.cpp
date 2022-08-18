@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:44:07 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/14 16:55:36 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:10:03 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include "../includes/whatever.hpp"
 
 int	main(){
-	// int a = 3;
-	// int b = 6;
-
-	// std::cout << a << " " << b << std::endl;
-	// ::swap(a, b);
-	// std::cout << a << " " << b << std::endl;
 
 	int a = 2;
 	int b = 3;

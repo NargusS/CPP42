@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:37:48 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/14 19:14:48 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/18 17:08:58 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,14 @@ Array<T>::Array(){
 
 template <class T>
 Array<T>::Array(unsigned int n){
-	this->_tab = new T[n];
+	if (n > 0)
+		this->_tab = new T[n];
+	else
+		this->_tab = NULL;
 	this->_size = n;
+	for (unsigned int i = 0; i < n; i++){
+		this->_tab[i] = 0;
+	}
 };
 
 template <class T>
@@ -73,7 +79,7 @@ Array<T>&	Array<T>::operator=(const Array& src){
 
 template <class T>
 unsigned int	Array<T>::size(){
-	unsigned int value = this->_size;
+	const unsigned int value = this->_size;
 	return (value);
 }
 
@@ -86,7 +92,7 @@ class InvalidIndexException : public std::exception {
 
 template <class T>
 T&	Array<T>::operator[](unsigned int index){
-	if (index >= this->_size)
+	if (index < 0 || index >= this->_size)
 		throw InvalidIndexException();
 	return (this->_tab[index]);
 }

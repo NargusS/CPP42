@@ -6,26 +6,64 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:44:07 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/16 15:02:21 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/20 14:07:31 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/easyfind.tpp"
+#include "../includes/easyfind.hpp"
 
 int	main(){
 
 	try{
 		std::deque<int> numbers;
 
-		for (int i = 0; i < 10; i++){
-			numbers.push_back(i);
+		for (int i = 0; i < 100; i++){
+			numbers.push_back(i * (3 + i));
 		}
-		easyfind(numbers, 9);
+		easyfind(numbers, 70);
 		std::cout << "Occurence found" << std::endl;
 	}
-	catch(const int &e){
-		std::cout << "Occurence not found" << std::endl;
+	catch(const std::exception &e){
+		std::cout << e.what() << std::endl;
 	}
 
+	try{
+		std::vector<int> numbers;
+
+		for (int i = 0; i < 100; i++){
+			numbers.push_back(i * (2 + i));
+		}
+		easyfind(numbers, 56);
+		std::cout << "Occurence found" << std::endl;
+	}
+	catch(const std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
+
+	try{
+		std::deque<char> numbers;
+
+		for (int i = 0; i < 13; i++){
+			numbers.push_back(i + 'F');
+		}
+		easyfind(numbers, 'I');
+		std::cout << "Occurence found" << std::endl;
+	}
+	catch(const std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
+
+	try{
+		std::vector<char> numbers;
+
+		for (int i = 0; i < 13; i++){
+			numbers.push_back(i + 'F');
+		}
+		easyfind(numbers,'E');
+		std::cout << "Occurence found" << std::endl;
+	}
+	catch(const std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
 	return 0;
 }

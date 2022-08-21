@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 19:30:17 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/16 15:03:27 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/18 20:21:49 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,24 @@
 class easyfind
 {
 	public:
+
 };
+
+class	NoOccurenceException : public std::exception{
+	public:
+		virtual const char*	what() const throw (){
+			return "No Occurence Found";
+		}
+};
+
 template <typename T>
 typename T::iterator	easyfind(T container, int integer){
 	typename T::iterator it;
 
 	it = find(container.begin(), container.end(), integer);
 	if (it == container.end())
-		throw 1;
+		throw NoOccurenceException();
 	return (it);
-	throw 1;
 }
 
 #endif

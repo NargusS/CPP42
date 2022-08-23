@@ -6,7 +6,7 @@
 /*   By: achane-l <achane-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:37:48 by achane-l          #+#    #+#             */
-/*   Updated: 2022/08/18 17:08:58 by achane-l         ###   ########.fr       */
+/*   Updated: 2022/08/23 16:26:45 by achane-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ARRAY_HPP
 #include <exception>
 
-template<class T>
+template<typename T>
 class Array
 {
 	private:
@@ -30,13 +30,13 @@ class Array
 		~Array();
 };
 
-template <class T>
+template <typename T>
 Array<T>::Array(){
 	this->_tab = NULL;
 	this->_size = 0;
 };
 
-template <class T>
+template <typename T>
 Array<T>::Array(unsigned int n){
 	if (n > 0)
 		this->_tab = new T[n];
@@ -48,7 +48,7 @@ Array<T>::Array(unsigned int n){
 	}
 };
 
-template <class T>
+template <typename T>
 Array<T>::Array(const Array& src){
 	this->_size = src._size;
 	this->_tab = new T[src._size];
@@ -58,14 +58,14 @@ Array<T>::Array(const Array& src){
 	return;
 };
 
-template <class T>
+template <typename T>
 Array<T>::~Array(){
 	if (this->_tab)
 		delete [] _tab;
 	return;
 }
 
-template <class T>
+template <typename T>
 Array<T>&	Array<T>::operator=(const Array& src){
 	this->_size = src._size;
 	if (this->_tab)
@@ -77,7 +77,7 @@ Array<T>&	Array<T>::operator=(const Array& src){
 	return (*this);
 }
 
-template <class T>
+template <typename T>
 unsigned int	Array<T>::size(){
 	const unsigned int value = this->_size;
 	return (value);
@@ -90,7 +90,7 @@ class InvalidIndexException : public std::exception {
 		}
 };
 
-template <class T>
+template <typename T>
 T&	Array<T>::operator[](unsigned int index){
 	if (index < 0 || index >= this->_size)
 		throw InvalidIndexException();
